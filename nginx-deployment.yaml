@@ -21,14 +21,14 @@ spec:
           - name: DOCKER_USERNAME
             valueFrom:
               secretKeyRef:
-                name: xyzIsthebest
+                name: xyzisthebest
                 key: docker_username
                 optional: false
           - name: DOCKER_PASSWORD
             valueFrom:
               secretKeyRef:
                 key: docker_password
-                name: xyzIsthebest
+                name: xyzisthebest
                 optional: false
         volumeMounts:
         - name: xyz-volume
