@@ -17,6 +17,19 @@ spec:
       containers:
       - name: nginx
         image: nginx:1.14.2
+        env:
+          - name: DOCKER_USERNAME
+            valueFrom:
+              secretKeyRef:
+                name: xyzIsthebest
+                key: docker_username
+                optional: false
+          - name: DOCKER_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                key: docker_password
+                name: xyzIsthebest
+                optional: false
         volumeMounts:
         - name: xyz-volume
           mountPath: /usr/share/nginx/html
