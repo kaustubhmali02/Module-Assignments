@@ -19,7 +19,7 @@ spec:
         image: nginx:1.14.2
         volumeMounts:
         - name: xyz-volume
-          mountPath: /usr/share/nginx/html/index.html
+          mountPath: /usr/share/nginx/html
         ports:
         - containerPort: 80
         resources:
