@@ -1,16 +1,17 @@
 # Added a taint on kube-woker-2 such that:
-# kubectl taint nodes kube-woker-2 nvidia-gpu=absent:NoSchedule
+# kubectl taint nodes kube-woker-2 color=green:NoSchedule
 
 apiVersion: v1
 kind: Pod
 metadata:
-  name: alpine
+  name: nginx
   labels:
     env: test
 spec:
   containers:
-  - name: alpine
-    image: alpine:latest
+  - name: nginx
+    image: nginx
+    imagePullPolicy: IfNotPresent
     resources:
       requests:
         memory: "128Mi"
