@@ -20,7 +20,7 @@ spec:
         memory: "256Mi"
         cpu: "500m"
   tolerations:
-  - key: "nvidia-gpu"
+  - key: "color"
     operator: "Equal"
-    value: "absent"
+    value: "green"
     effect: "NoSchedule"
