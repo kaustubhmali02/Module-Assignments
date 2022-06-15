@@ -21,6 +21,6 @@ spec:
         cpu: "500m"
   tolerations:
   - key: "nvidia-gpu"
-    operator: "Equals"
+    operator: "Equal"
     value: "absent"
     effect: "NoSchedule"
