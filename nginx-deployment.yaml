@@ -18,7 +18,7 @@ spec:
       - name: nginx
         image: nginx:1.14.2
         volumeMounts:
-        - name: xyz-volume
+        - name: xyz-volume-storage
           mountPath: /usr/share/nginx/html/index.html
         ports:
         - containerPort: 80
@@ -31,3 +31,5 @@ spec:
             cpu: "500m"
       volumes:
         - name: xyz-volume
+          persistentVolumeClaim:
+            claimName: xyz-claim
