@@ -1,0 +1,26 @@
+# Added a taint on kube-woker-2 such that:
+# kubectl taint nodes kube-woker-2 nvidia-gpu=absent:NoSchedule
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: alpine
+  labels:
+    env: test
+spec:
+  containers:
+  - name: alpine
+    image: alpine:latest
+    imagePullPolicy: IfNotPresent
+    resources:
+      requests:
+        memory: "128Mi"
+        cpu: "100m"
+      limits:
+        memory: "256Mi"
+        cpu: "500m"
+  tolerations:
+  - key: "nvidia-gpu"
+    operator: "Equals"
+    value: "absent"
+    effect: "NoSchedule"
